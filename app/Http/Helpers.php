@@ -5,20 +5,19 @@ use App\Models\PostTag;
 use App\Models\PostCategory;
 use App\Models\Order;
 use App\Models\Wishlist;
-use App\Models\Shipping;
 use App\Models\Cart;
 // use Auth;
 class Helper{
     public static function messageList()
     {
         return Message::whereNull('read_at')->orderBy('created_at', 'desc')->get();
-    } 
+    }
     public static function getAllCategory(){
         $category=new Category();
         $menu=$category->getAllParentWithChild();
         return $menu;
-    } 
-    
+    }
+
     public static function getHeaderCategory(){
         $category = new Category();
         // dd($category);
@@ -26,7 +25,7 @@ class Helper{
 
         if($menu){
             ?>
-            
+
             <li>
             <a href="javascript:void(0);">Category<i class="ti-angle-down"></i></a>
                 <ul class="dropdown border-0 shadow">
@@ -82,7 +81,7 @@ class Helper{
     }
     // Cart Count
     public static function cartCount($user_id=''){
-       
+
         if(Auth::check()){
             if($user_id=="") $user_id=auth()->user()->id;
             return Cart::where('user_id',$user_id)->where('order_id',null)->sum('quantity');
@@ -117,7 +116,7 @@ class Helper{
     }
     // Wishlist Count
     public static function wishlistCount($user_id=''){
-       
+
         if(Auth::check()){
             if($user_id=="") $user_id=auth()->user()->id;
             return Wishlist::where('user_id',$user_id)->where('cart_id',null)->sum('quantity');
@@ -145,14 +144,12 @@ class Helper{
         }
     }
 
-    // Total price with shipping and coupon
     public static function grandPrice($id,$user_id){
         $order=Order::find($id);
         dd($id);
         if($order){
-            $shipping_price=(float)$order->shipping->price;
             $order_price=self::orderPrice($id,$user_id);
-            return number_format((float)($order_price+$shipping_price),2,'.','');
+            return number_format((float)($order_price),2,'.','');
         }else{
             return 0;
         }
@@ -168,10 +165,6 @@ class Helper{
             $price = $data->cart_info->sum('price');
         }
         return number_format((float)($price),2,'.','');
-    }
-
-    public static function shipping(){
-        return Shipping::orderBy('id','DESC')->get();
     }
 }
 

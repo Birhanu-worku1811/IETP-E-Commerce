@@ -29,7 +29,6 @@
             <td>{{$order->first_name}} {{$order->last_name}}</td>
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
-{{--            <td>${{//$order->shipping->price}}</td>--}}
             <td>${{number_format($order->total_amount,2)}}</td>
             <td>
                 @if($order->status=='new')
@@ -78,13 +77,6 @@
                         <td> : {{$order->status}}</td>
                     </tr>
                     <tr>
-                      @php
-                          $shipping_charge=DB::table('shippings')->where('id',$order->shipping_id)->pluck('price');
-                      @endphp
-                        <td>Shipping Charge</td>
-{{--                        <td> :${{$order->shipping->price}}</td>--}}
-                    </tr>
-                    <tr>
                         <td>Total Amount</td>
                         <td> : $ {{number_format($order->total_amount,2)}}</td>
                     </tr>
@@ -99,38 +91,6 @@
               </table>
             </div>
           </div>
-
-          <div class="col-lg-6 col-lx-4">
-            <div class="shipping-info">
-              <h4 class="text-center pb-4">SHIPPING INFORMATION</h4>
-              <table class="table">
-                    <tr class="">
-                        <td>Full Name</td>
-                        <td> : {{$order->first_name}} {{$order->last_name}}</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td> : {{$order->email}}</td>
-                    </tr>
-                    <tr>
-                        <td>Phone No.</td>
-                        <td> : {{$order->phone}}</td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td> : {{$order->address1}}, {{$order->address2}}</td>
-                    </tr>
-                    <tr>
-                        <td>Country</td>
-                        <td> : {{$order->country}}</td>
-                    </tr>
-                    <tr>
-                        <td>Post Code</td>
-                        <td> : {{$order->post_code}}</td>
-                    </tr>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -140,15 +100,3 @@
 </div>
 @endsection
 
-@push('styles')
-<style>
-    .order-info,.shipping-info{
-        background:#ECECEC;
-        padding:20px;
-    }
-    .order-info h4,.shipping-info h4{
-        text-decoration: underline;
-    }
-
-</style>
-@endpush

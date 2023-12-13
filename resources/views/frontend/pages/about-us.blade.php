@@ -60,7 +60,7 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
+						<h4>Free shipping</h4>
 						<p>Orders over $100</p>
 					</div>
 					<!-- End Single Service -->

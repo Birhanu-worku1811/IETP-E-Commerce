@@ -18,9 +18,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::getAllPost();
-        // return $posts;
-        return view('backend.post.index')->with('posts',$posts);
+        return "posts";
+//        $posts=Post::getAllPost();
+//        // return $posts;
+//        return view('backend.post.index')->with('posts',$posts);
     }
 
     /**
@@ -164,9 +165,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post=Post::findOrFail($id);
-       
+
         $status=$post->delete();
-        
+
         if($status){
             request()->session()->flash('success','Post successfully deleted');
         }

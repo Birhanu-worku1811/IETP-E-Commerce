@@ -1,6 +1,7 @@
 <?php
 
-    use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
     use Illuminate\Support\Facades\Artisan;
     use App\Http\Controllers\AdminController;
     use App\Http\Controllers\FrontendController;
@@ -11,7 +12,6 @@
     use App\Http\Controllers\OrderController;
     use App\Http\Controllers\ProductReviewController;
     use App\Http\Controllers\PostCommentController;
-    use App\Http\Controllers\CouponController;
     use App\Http\Controllers\PayPalController;
     use App\Http\Controllers\NotificationController;
     use App\Http\Controllers\HomeController;
@@ -40,7 +40,7 @@
     Route::get('storage-link',[AdminController::class,'storageLink'])->name('storage.link');
 
 
-    Auth::routes(['register' => false]);
+    Auth::routes(['register' => true]);
 
     Route::get('user/login', [FrontendController::class, 'login'])->name('login.form');
     Route::post('user/login', [FrontendController::class, 'loginSubmit'])->name('login.submit');
@@ -65,7 +65,6 @@
     Route::post('/product/search', [FrontendController::class, 'productSearch'])->name('product.search');
     Route::get('/product-cat/{slug}', [FrontendController::class, 'productCat'])->name('product-cat');
     Route::get('/product-sub-cat/{slug}/{sub_slug}', [FrontendController::class, 'productSubCat'])->name('product-sub-cat');
-    Route::get('/product-brand/{slug}', [FrontendController::class, 'productBrand'])->name('product-brand');
 // Cart section
     Route::get('/add-to-cart/{slug}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('user');
     Route::post('/add-to-cart', [CartController::class, 'singleAddToCart'])->name('single-add-to-cart')->middleware('user');
@@ -110,8 +109,6 @@
 // Post Comment
     Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');
     Route::resource('/comment', 'PostCommentController');
-// Coupon
-    Route::post('/coupon-store', [CouponController::class, 'couponStore'])->name('coupon-store');
 // Payment
     Route::get('payment', [PayPalController::class, 'payment'])->name('payment');
     Route::get('cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
@@ -129,8 +126,6 @@
         Route::resource('users', 'UsersController');
         // Banner
         Route::resource('banner', 'BannerController');
-        // Brand
-        Route::resource('brand', 'BrandController');
         // Profile
         Route::get('/profile', [AdminController::class, 'profile'])->name('admin-profile');
         Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update');
@@ -152,10 +147,6 @@
 
         // Order
         Route::resource('/order', 'OrderController');
-        // Shipping
-        Route::resource('/shipping', 'ShippingController');
-        // Coupon
-        Route::resource('/coupon', 'CouponController');
         // Settings
         Route::get('settings', [AdminController::class, 'settings'])->name('settings');
         Route::post('setting/update', [AdminController::class, 'settingsUpdate'])->name('settings.update');
@@ -201,3 +192,4 @@
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         Lfm::routes();
     });
+

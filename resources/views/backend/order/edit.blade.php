@@ -24,15 +24,3 @@
 </div>
 @endsection
 
-@push('styles')
-<style>
-    .order-info,.shipping-info{
-        background:#ECECEC;
-        padding:20px;
-    }
-    .order-info h4,.shipping-info h4{
-        text-decoration: underline;
-    }
-
-</style>
-@endpush

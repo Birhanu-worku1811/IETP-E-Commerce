@@ -119,7 +119,7 @@
       </thead>
       <tbody>
       @foreach($order->cart_info as $cart)
-      @php 
+      @php
         $product=DB::table('products')->select('title')->where('id',$cart->product_id)->get();
       @endphp
         <tr>
@@ -139,16 +139,8 @@
           <th scope="col" class="text-right">Subtotal:</th>
           <th scope="col"> <span>${{number_format($order->sub_total,2)}}</span></th>
         </tr>
-      {{-- @if(!empty($order->coupon))
         <tr>
           <th scope="col" class="empty"></th>
-          <th scope="col" class="text-right">Discount:</th>
-          <th scope="col"><span>-{{$order->coupon->discount(Helper::orderPrice($order->id, $order->user->id))}}{{Helper::base_currency()}}</span></th>
-        </tr>
-      @endif --}}
-        <tr>
-          <th scope="col" class="empty"></th>
-          <th scope="col" class="text-right ">Shipping:</th>
           <th><span>${{number_format($order->delivery_charge,2)}}</span></th>
         </tr>
         <tr>
