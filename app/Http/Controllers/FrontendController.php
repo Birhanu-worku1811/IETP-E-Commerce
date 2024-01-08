@@ -25,7 +25,6 @@ class FrontendController extends Controller
 
     public function home(){
         $featured=Product::where('status','active')->where('is_featured',1)->orderBy('price','DESC')->limit(2)->get();
-        $posts=Post::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $banners=Banner::where('status','active')->limit(3)->orderBy('id','DESC')->get();
         // return $banner;
         $products=Product::where('status','active')->orderBy('id','DESC')->limit(8)->get();
@@ -33,7 +32,6 @@ class FrontendController extends Controller
         // return $category;
         return view('frontend.index')
                 ->with('featured',$featured)
-                ->with('posts',$posts)
                 ->with('banners',$banners)
                 ->with('product_lists',$products)
                 ->with('category_lists',$category);
@@ -321,7 +319,7 @@ class FrontendController extends Controller
         }
         else{
             request()->session()->flash('error','Invalid email and password pleas try again!');
-            return redirect()->back();
+            return redirect()->route('login.form');
         }
     }
 

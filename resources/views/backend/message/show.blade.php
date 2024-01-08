@@ -1,4 +1,5 @@
 @extends('backend.layouts.master')
+@section('title',"Message-".$message->subject)
 @section('main-content')
 <div class="card">
   <h5 class="card-header">Message</h5>
@@ -6,7 +7,7 @@
     @if($message)
         @if($message->photo)
         <img src="{{$message->photo}}" class="rounded-circle " style="margin-left:44%;">
-        @else 
+        @else
         <img src="{{asset('backend/img/avatar.png')}}" class="rounded-circle " style="margin-left:44%;">
         @endif
         <div class="py-4">From: <br>

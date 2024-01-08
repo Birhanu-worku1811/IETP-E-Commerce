@@ -1,9 +1,9 @@
 $(document).ready(function(){
-    
+
     (function($) {
         "use strict";
 
-    
+
     jQuery.validator.addMethod('answercheck', function (value, element) {
         return this.optional(element) || /^\bcat\b$/.test(value)
     }, "type the correct answer -_-");
@@ -35,23 +35,23 @@ $(document).ready(function(){
             },
             messages: {
                 name: {
-                    required: "come on, you have a name, don't you?",
-                    minlength: "your name must have at least 2 characters"
+                    required: "Write your name here!",
+                    minlength: "your name must have at least 2 characters",
                 },
                 subject: {
-                    required: "come on, you have a subject, don't you?",
+                    required: "Write the subject of your message here!",
                     minlength: "your subject must have at least 4 characters"
                 },
                 number: {
-                    required: "come on, you have a number, don't you?",
+                    required: "Write your number!",
                     minlength: "your Number must have at least 9 characters"
                 },
                 email: {
                     required: "no email, no message"
                 },
                 message: {
-                    required: "um...yea, you have to write something to send this form.",
-                    minlength: "Your subject must have at least 10 characters"
+                    required: "you have to write something to send this form.",
+                    minlength: "Your message must have at least 10 characters"
                 }
             },
             submitHandler: function(form) {
@@ -85,6 +85,6 @@ $(document).ready(function(){
             }
         })
     })
-        
+
  })(jQuery)
 })

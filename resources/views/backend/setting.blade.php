@@ -1,12 +1,12 @@
 @extends('backend.layouts.master')
-
+@section('title','Settings')
 @section('main-content')
 
 <div class="card">
     <h5 class="card-header">Edit Post</h5>
     <div class="card-body">
     <form method="post" action="{{route('settings.update')}}">
-        @csrf 
+        @csrf
         {{-- @method('PATCH') --}}
         {{-- {{dd($data)}} --}}
         <div class="form-group">

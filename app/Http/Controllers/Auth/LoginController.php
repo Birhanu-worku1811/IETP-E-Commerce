@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use Laravel\Socialite\Facades\Socialite;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -69,5 +70,10 @@ class LoginController extends Controller
             ]);
          return redirect()->route('home');
         }
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        return redirect()->route('login')->with('error','Invalid Credentials');
     }
 }

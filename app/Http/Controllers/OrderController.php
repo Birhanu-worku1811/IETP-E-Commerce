@@ -50,7 +50,8 @@ class OrderController extends Controller
             'address2'=>'string|nullable',
             'phone'=>'numeric|required',
             'post_code'=>'string|nullable',
-            'email'=>'string|required'
+            'email'=>'string|required',
+            'city'=>'required',
         ]);
         // return $request->all();
 
@@ -93,20 +94,11 @@ class OrderController extends Controller
         $order_data['sub_total']=Helper::totalCartPrice();
         $order_data['quantity']=Helper::cartCount();
 
-        if($request->shipping){
-            $order_data['total_amount']=Helper::totalCartPrice();
-        }
+
         $order_data['total_amount']=Helper::totalCartPrice();
         // return $order_data['total_amount'];
         $order_data['status']="new";
-        if(request('payment_method')=='paypal'){
-            $order_data['payment_method']='paypal';
-            $order_data['payment_status']='paid';
-        }
-        else{
-            $order_data['payment_method']='cod';
-            $order_data['payment_status']='Unpaid';
-        }
+
         $order->fill($order_data);
         $status=$order->save();
         if($order)
@@ -118,12 +110,7 @@ class OrderController extends Controller
             'fas'=>'fa-file-alt'
         ];
         Notification::send($users, new StatusNotification($details));
-        if(request('payment_method')=='paypal'){
-            return redirect()->route('payment')->with(['id'=>$order->id]);
-        }
-        else{
-            session()->forget('cart');
-        }
+        session()->forget('cart');
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
 
         // dd($users);
