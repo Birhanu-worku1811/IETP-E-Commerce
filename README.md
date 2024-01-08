@@ -1,5 +1,5 @@
 # INTEGRATED ENGINEERING TEAM PROJECT GROUP 12
-[![Logo](public/storage/photos/1/logo.png)](https://sites.google.com/view/ietpgroup12)
+[![Logo](screenshots/logo.png)](https://sites.google.com/view/ietpgroup12)
 
 ### [Visit our E-Portfolio](https://sites.google.com/view/ietpgroup12)
 ## [E-commerce Website](link)
