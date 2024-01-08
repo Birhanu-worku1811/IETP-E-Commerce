@@ -2,7 +2,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('user')}}">
-      <img src="{{asset('storage/photos/1/logo.png')}}" alt="logo" style="width:50px;height:50px;">
+      <img src="{{asset('photos/1/logo.png')}}" alt="logo" style="width:50px;height:50px;">
       <div class="sidebar-brand-text mx-3">User</div>
     </a>
 

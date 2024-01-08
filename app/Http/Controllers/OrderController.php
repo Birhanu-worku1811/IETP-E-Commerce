@@ -201,9 +201,6 @@ class OrderController extends Controller
         }
     }
 
-    public function orderTrack(){
-        return view('frontend.pages.order-track');
-    }
 
     public function productTrackOrder(Request $request){
         // return $request->all();
