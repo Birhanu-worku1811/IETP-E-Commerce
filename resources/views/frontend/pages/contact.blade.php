@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section('title','Contact')
 @section('main-content')
 	<!-- Breadcrumbs -->
 	<div class="breadcrumbs">
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<!-- End Breadcrumbs -->
-  
+
 	<!-- Start Contact -->
 	<section id="contact-us" class="contact-us section">
 		<div class="container">
@@ -51,13 +51,13 @@
 											<div class="form-group">
 												<label>Your Email<span>*</span></label>
 												<input name="email" type="email" id="email" placeholder="Enter email address">
-											</div>	
+											</div>
 										</div>
 										<div class="col-lg-6 col-12">
 											<div class="form-group">
 												<label>Your Phone<span>*</span></label>
 												<input id="phone" name="phone" type="number" placeholder="Enter your phone">
-											</div>	
+											</div>
 										</div>
 										<div class="col-12">
 											<div class="form-group message">
@@ -104,15 +104,16 @@
 			</div>
 	</section>
 	<!--/ End Contact -->
-	
+
 	<!-- Map Section -->
 	<div class="map-section">
 		<div id="myMap">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14130.857353934944!2d85.36529494999999!3d27.6952226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sne!2snp!4v1595323330171!5m2!1sne!2snp" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+{{--			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14130.857353934944!2d85.36529494999999!3d27.6952226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sne!2snp!4v1595323330171!5m2!1sne!2snp" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>--}}
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.940058223047!2d38.80717847498112!3d8.885165391170542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b82a7e392203f%3A0xb05f440eacc98f9f!2sAddis%20Ababa%20Science%20and%20Technology%20University!5e0!3m2!1sen!2set!4v1704742384818!5m2!1sen!2set" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""aria-hidden="false" tabindex="0"></iframe>
 		</div>
 	</div>
 	<!--/ End Map Section -->
-	
+
 	<!-- Start Shop Newsletter  -->
 	@include('frontend.layouts.newsletter')
 	<!-- End Shop Newsletter -->
@@ -132,7 +133,7 @@
 		  </div>
 		</div>
 	</div>
-	
+
 	<!-- Modals error -->
 	<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
