@@ -2,7 +2,7 @@
 [![Logo](screenshots/logo.png)](https://sites.google.com/view/ietpgroup12)
 
 ### [Visit our E-Portfolio](https://sites.google.com/view/ietpgroup12)
-## [E-commerce Website](link)
+## [E-commerce Website](http://ietpgroup12.42web.io/)
 
 # ====== FRONT-END =======
 

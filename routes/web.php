@@ -42,62 +42,62 @@ use Illuminate\Support\Facades\Route;
 
     Auth::routes(['register' => false]);
 
-    Route::get('user/login', [FrontendController::class, 'login'])->name('login.form'); // done
-    Route::post('user/login', [FrontendController::class, 'loginSubmit'])->name('login.submit'); // done
-    Route::get('user/logout', [FrontendController::class, 'logout'])->name('user.logout'); // done
+    Route::get('user/login', [FrontendController::class, 'login'])->name('login.form');
+    Route::post('user/login', [FrontendController::class, 'loginSubmit'])->name('login.submit');
+    Route::get('user/logout', [FrontendController::class, 'logout'])->name('user.logout');
 
-    Route::get('user/register', [FrontendController::class, 'register'])->name('register.form'); // done
-    Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit'); // done
+    Route::get('user/register', [FrontendController::class, 'register'])->name('register.form');
+    Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit');
 // Reset password
-    Route::post('password-reset', [FrontendController::class, 'showResetForm'])->name('password.reset'); // queued
+    Route::post('password-reset', [FrontendController::class, 'showResetForm'])->name('password.reset');
 // Socialite
-    Route::get('login/{provider}/', [LoginController::class, 'redirect'])->name('login.redirect'); // No idea
-    Route::get('login/{provider}/callback/', [LoginController::class, 'Callback'])->name('login.callback'); // No idea
+    Route::get('login/{provider}/', [LoginController::class, 'redirect'])->name('login.redirect');
+    Route::get('login/{provider}/callback/', [LoginController::class, 'Callback'])->name('login.callback');
 
-    Route::get('/', [FrontendController::class, 'home'])->name('home'); // done
+    Route::get('/', [FrontendController::class, 'home'])->name('home');
 
 // Frontend Routes
-    Route::get('/home', [FrontendController::class, 'index']); // done
-    Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('about-us'); // done
-    Route::get('/contact', [FrontendController::class, 'contact'])->name('contact'); // done
-    Route::post('/contact/message', [MessageController::class, 'store'])->name('contact.store'); // done
-    Route::get('product-detail/{slug}', [FrontendController::class, 'productDetail'])->name('product-detail'); // done
-    Route::post('/product/search', [FrontendController::class, 'productSearch'])->name('product.search'); // done
-    Route::get('/product-cat/{slug}', [FrontendController::class, 'productCat'])->name('product-cat'); //done
-    Route::get('/product-sub-cat/{slug}/{sub_slug}', [FrontendController::class, 'productSubCat'])->name('product-sub-cat'); // done
+    Route::get('/home', [FrontendController::class, 'index']);
+    Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('about-us');
+    Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+    Route::post('/contact/message', [MessageController::class, 'store'])->name('contact.store');
+    Route::get('product-detail/{slug}', [FrontendController::class, 'productDetail'])->name('product-detail');
+    Route::post('/product/search', [FrontendController::class, 'productSearch'])->name('product.search');
+    Route::get('/product-cat/{slug}', [FrontendController::class, 'productCat'])->name('product-cat');
+    Route::get('/product-sub-cat/{slug}/{sub_slug}', [FrontendController::class, 'productSubCat'])->name('product-sub-cat');
 // Cart section
-    Route::get('/add-to-cart/{slug}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('user'); // done
-    Route::post('/add-to-cart', [CartController::class, 'singleAddToCart'])->name('single-add-to-cart')->middleware('user'); // done
-    Route::get('cart-delete/{id}', [CartController::class, 'cartDelete'])->name('cart-delete'); // done
-    Route::post('cart-update', [CartController::class, 'cartUpdate'])->name('cart.update'); // done
+    Route::get('/add-to-cart/{slug}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('user');
+    Route::post('/add-to-cart', [CartController::class, 'singleAddToCart'])->name('single-add-to-cart')->middleware('user');
+    Route::get('cart-delete/{id}', [CartController::class, 'cartDelete'])->name('cart-delete');
+    Route::post('cart-update', [CartController::class, 'cartUpdate'])->name('cart.update');
 
     Route::get('/cart', function () {
         return view('frontend.pages.cart');
-    })->name('cart'); // done
-    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout')->middleware('user'); // done
+    })->name('cart');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout')->middleware('user');
 // Wishlist
     Route::get('/wishlist', function () {
         return view('frontend.pages.wishlist');
-    })->name('wishlist'); // done
-    Route::get('/wishlist/{slug}', [WishlistController::class, 'wishlist'])->name('add-to-wishlist')->middleware('user'); // done
-    Route::get('wishlist-delete/{id}', [WishlistController::class, 'wishlistDelete'])->name('wishlist-delete'); // done
-    Route::post('cart/order', [OrderController::class, 'store'])->name('cart.order'); // done
-    Route::get('order/pdf/{id}', [OrderController::class, 'pdf'])->name('order.pdf'); // review
-    Route::get('/income', [OrderController::class, 'incomeChart'])->name('product.order.income'); // may be
+    })->name('wishlist');
+    Route::get('/wishlist/{slug}', [WishlistController::class, 'wishlist'])->name('add-to-wishlist')->middleware('user');
+    Route::get('wishlist-delete/{id}', [WishlistController::class, 'wishlistDelete'])->name('wishlist-delete');
+    Route::post('cart/order', [OrderController::class, 'store'])->name('cart.order');
+    Route::get('order/pdf/{id}', [OrderController::class, 'pdf'])->name('order.pdf');
+    Route::get('/income', [OrderController::class, 'incomeChart'])->name('product.order.income');
 // Route::get('/user/chart',[AdminController::class, 'userPieChart'])->name('user.piechart');
-    Route::get('/product-grids', [FrontendController::class, 'productGrids'])->name('product-grids'); // done
-    Route::get('/product-lists', [FrontendController::class, 'productLists'])->name('product-lists'); // done
-    Route::match(['get', 'post'], '/filter', [FrontendController::class, 'productFilter'])->name('shop.filter'); // done
+    Route::get('/product-grids', [FrontendController::class, 'productGrids'])->name('product-grids');
+    Route::get('/product-lists', [FrontendController::class, 'productLists'])->name('product-lists');
+    Route::match(['get', 'post'], '/filter', [FrontendController::class, 'productFilter'])->name('shop.filter');
 
 // NewsLetter
-    Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subscribe'); // review
+    Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subscribe');
 
 // Product Review
     Route::resource('/review', 'ProductReviewController'); // review
     Route::post('product/{slug}/review', [ProductReviewController::class, 'store'])->name('review.store');
 
 // Post Comment
-//    Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store'); // no idea
+//    Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');
 //    Route::resource('/comment', 'PostCommentController');
 // Payment
 //    Route::get('payment', [PayPalController::class, 'payment'])->name('payment');
@@ -108,21 +108,21 @@ use Illuminate\Support\Facades\Route;
 // Backend section start
 
     Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function () {
-        Route::get('/', [AdminController::class, 'index'])->name('admin'); // done
+        Route::get('/', [AdminController::class, 'index'])->name('admin');
         Route::get('/file-manager', function () {
             return view('backend.layouts.file-manager');
-        })->name('file-manager'); // done
+        })->name('file-manager');
         // user route
-        Route::resource('users', 'UsersController'); // done
+        Route::resource('users', 'UsersController');
         // Banner
-        Route::resource('banner', 'BannerController'); // done
+        Route::resource('banner', 'BannerController');
         // Profile
-        Route::get('/profile', [AdminController::class, 'profile'])->name('admin-profile'); // done
-        Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update'); // done
+        Route::get('/profile', [AdminController::class, 'profile'])->name('admin-profile');
+        Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update');
         // Category
-        Route::resource('/category', 'CategoryController'); // done
+        Route::resource('/category', 'CategoryController');
         // Product
-        Route::resource('/product', 'ProductController'); // done
+        Route::resource('/product', 'ProductController');
         // Ajax for sub category
         Route::post('/category/{id}/child', 'CategoryController@getChildByParent');
         // POST category
@@ -132,33 +132,33 @@ use Illuminate\Support\Facades\Route;
         // Post
 //        Route::resource('/post', 'PostController');
         // Message
-        Route::resource('/message', 'MessageController'); // done
-        Route::get('/message/five', [MessageController::class, 'messageFive'])->name('messages.five'); // done
+        Route::resource('/message', 'MessageController');
+        Route::get('/message/five', [MessageController::class, 'messageFive'])->name('messages.five');
 
         // Order
-        Route::resource('/order', 'OrderController'); // done
+        Route::resource('/order', 'OrderController');
         // Settings
-        Route::get('settings', [AdminController::class, 'settings'])->name('settings'); // done
-        Route::post('setting/update', [AdminController::class, 'settingsUpdate'])->name('settings.update'); // done
+        Route::get('settings', [AdminController::class, 'settings'])->name('settings');
+        Route::post('setting/update', [AdminController::class, 'settingsUpdate'])->name('settings.update');
 
         // Notification
-        Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('admin.notification'); // done
-        Route::get('/notifications', [NotificationController::class, 'index'])->name('all.notification'); // done
-        Route::delete('/notification/{id}', [NotificationController::class, 'delete'])->name('notification.delete'); // done
+        Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('admin.notification');
+        Route::get('/notifications', [NotificationController::class, 'index'])->name('all.notification');
+        Route::delete('/notification/{id}', [NotificationController::class, 'delete'])->name('notification.delete');
         // Password Change
-        Route::get('change-password', [AdminController::class, 'changePassword'])->name('change.password.form'); // done
-        Route::post('change-password', [AdminController::class, 'changPasswordStore'])->name('change.password'); // done
+        Route::get('change-password', [AdminController::class, 'changePassword'])->name('change.password.form');
+        Route::post('change-password', [AdminController::class, 'changPasswordStore'])->name('change.password');
     });
 
 
 // User section start
     Route::group(['prefix' => '/user', 'middleware' => ['user']], function () {
-        Route::get('/', [HomeController::class, 'index'])->name('user'); // done
+        Route::get('/', [HomeController::class, 'index'])->name('user');
         // Profile
-        Route::get('/profile', [HomeController::class, 'profile'])->name('user-profile'); // done
-        Route::post('/profile/{id}', [HomeController::class, 'profileUpdate'])->name('user-profile-update'); // done
+        Route::get('/profile', [HomeController::class, 'profile'])->name('user-profile');
+        Route::post('/profile/{id}', [HomeController::class, 'profileUpdate'])->name('user-profile-update');
         //  Order
-        Route::get('/order', "HomeController@orderIndex")->name('user.order.index'); // done
+        Route::get('/order', "HomeController@orderIndex")->name('user.order.index');
         Route::get('/order/show/{id}', "HomeController@orderShow")->name('user.order.show');
         Route::delete('/order/delete/{id}', [HomeController::class, 'userOrderDelete'])->name('user.order.delete');
         // Product Review

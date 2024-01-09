@@ -59,11 +59,11 @@
                                     <div class="checkbox">
                                         <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Remember me</label>
                                     </div>
-                                    @if (Route::has('password.request'))
-                                        <a class="lost-pass" href="{{ route('password.reset') }}">
-                                            Lost your password?
-                                        </a>
-                                    @endif
+{{--                                    @if (Route::has('password.request'))--}}
+{{--                                        <a class="lost-pass" href="{{ route('password.reset') }}">--}}
+{{--                                            Lost your password?--}}
+{{--                                        </a>--}}
+{{--                                    @endif--}}
                                 </div>
                             </div>
                         </form>
