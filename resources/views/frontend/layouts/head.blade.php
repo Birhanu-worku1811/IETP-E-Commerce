@@ -1,6 +1,7 @@
 <!-- Meta Tag -->
 @yield('meta')
 <!-- Title Tag  -->
+<link rel="icon" type="image/png" href="{{ asset('storage/photos/1/logo1.png') }}">
 <title>IETP-Ecommerce | @yield('title')</title>
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="images/favicon.png">

@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/png" href="{{ asset('storage/photos/1/logo1.png') }}">
     <title>Admin | @yield('title')</title>
 
     <!-- Custom fonts for this template-->
