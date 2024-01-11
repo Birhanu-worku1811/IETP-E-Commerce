@@ -336,9 +336,9 @@
 														<a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i class="ti-heart"></i></a>
 													</div>
 												</form>
-												<div class="default-social">
-												<!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
-												</div>
+{{--												<div class="default-social">--}}
+{{--												<!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->--}}
+{{--												</div>--}}
 											</div>
 										</div>
 									</div>
