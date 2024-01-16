@@ -149,8 +149,8 @@
                                                 @php
                                                     $after_discount=($product->price-($product->price*$product->discount)/100);
                                                 @endphp
-                                                <span>${{number_format($after_discount,2)}}</span>
-                                                <del style="padding-left:4%;">${{number_format($product->price,2)}}</del>
+                                                <span>ETB{{number_format($after_discount,2)}}</span>
+                                                <del style="padding-left:4%;">ETB{{number_format($product->price,2)}}</del>
                                             </div>
                                         </div>
                                     </div>
@@ -247,11 +247,11 @@
                             <div class="product-content">
                                 <h3><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
                                 <div class="product-price">
-                                    <span class="old">${{number_format($product->price,2)}}</span>
+                                    <span class="old">ETB{{number_format($product->price,2)}}</span>
                                     @php
                                     $after_discount=($product->price-($product->price*$product->discount)/100)
                                     @endphp
-                                    <span>${{number_format($after_discount,2)}}</span>
+                                    <span>ETB{{number_format($after_discount,2)}}</span>
                                 </div>
                             </div>
                         </div>
@@ -299,7 +299,7 @@
                                 <div class="col-lg-6 col-md-6 col-12 no-padding">
                                     <div class="content">
                                         <h4 class="title"><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h4>
-                                        <p class="price with-discount">${{number_format($product->price-($product->price*$product->discount)/100,2)}}</p>
+                                        <p class="price with-discount">ETB{{number_format($product->price-($product->price*$product->discount)/100,2)}}</p>
                                     </div>
                                 </div>
                                 </div>

@@ -4,7 +4,7 @@
         <!-- Counter - Messages -->
         @if(count(Helper::messageList())>5)
             <span data-count="5" class="badge badge-danger badge-counter">5+</span>
-        @else 
+        @else
 
     <span data-count="{{count(Helper::messageList())}}" class="badge badge-danger badge-counter">{{count(Helper::messageList())}}</span>
 
@@ -21,7 +21,7 @@
                     <div class="dropdown-list-image mr-3">
                         @if($message->photo)
                         <img class="rounded-circle" src="{{$message->photo}}" alt="profile">
-                        @else 
+                        @else
                         <img class="rounded-circle" src="{{asset('backend/img/avatar.png')}}" alt="default img">
                         @endif
                         {{-- <div class="status-indicator bg-success"></div> --}}
@@ -31,8 +31,8 @@
                         <div class="small text-gray-500">{{$message->name}} · {{$message->created_at->diffForHumans()}}</div>
                     </div>
                 </a>
-                @if($loop->index+1==5) 
-                  @php 
+                @if($loop->index+1==5)
+                  @php
                     break;
                   @endphp
                 @endif
@@ -67,13 +67,13 @@
       $(message_counter_area).attr('data-count', message_counter);
 
       const data = `
-      <a class="dropdown-item d-flex align-items-center message-item" href="${e.message.url}">
+      <a class="dropdown-item d-flex align-items-center message-item" href="ETB{e.message.url}">
         <div class="dropdown-list-image mr-3">
-          <img class="rounded-circle" src="${e.message.photo}" alt="${e.message.name}">
+          <img class="rounded-circle" src="ETB{e.message.photo}" alt="ETB{e.message.name}">
         </div>
         <div class="font-weight-bold">
-          <div class="text-truncate">${e.message.subject}</div>
-          <div class="small text-gray-500">${e.message.name} · ${e.message.date}</div>
+          <div class="text-truncate">ETB{e.message.subject}</div>
+          <div class="small text-gray-500">ETB{e.message.name} · ETB{e.message.date}</div>
         </div>
       </a>
       `;
@@ -82,7 +82,7 @@
 
       if(message_counter<=5){
         $(message_counter_area).text( message_counter );
-      }else{ 
+      }else{
         $(message_counter_area).text('5+');
       };
 

@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\User;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Http;
 use Notification;
 use Helper;
 use Illuminate\Support\Str;
@@ -114,6 +115,20 @@ class OrderController extends Controller
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
 
         // dd($users);
+
+        // Sending Request to the Store about the order
+        $storeAPIurl = 'http://ietpg12.x10.mx/API/get-product.php';
+
+        $order = Order::where('order_number', $order_data['order_number']);
+        foreach ($order->cart as $orderedCart){
+            Http::get($storeAPIurl, [
+                'key' => env('STORE_KEY'),
+                'type' => $orderedCart->product->title,
+                'city' => $order->city,
+                'amount' => $orderedCart->quantity,
+            ]);
+        }
+
         request()->session()->flash('success','Your product successfully placed in order');
         return redirect()->route('home');
     }
