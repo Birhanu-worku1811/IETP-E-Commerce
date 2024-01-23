@@ -119,14 +119,12 @@ class OrderController extends Controller
         // Sending Request to the Store about the order
         $storeAPIurl = 'http://ietpg12.x10.mx/API/get-product.php';
 
-        $order = Order::where('order_number', $order_data['order_number']);
+        $order = Order::where('order_number', $order_data['order_number'])->get()->first();
         foreach ($order->cart as $orderedCart){
-            Http::get($storeAPIurl, [
-                'key' => env('STORE_KEY'),
-                'type' => $orderedCart->product->title,
-                'city' => $order->city,
-                'amount' => $orderedCart->quantity,
-            ]);
+            $product = $orderedCart->product->title;
+            $city = "addis ababa";
+            $amount=$orderedCart->quantity;
+            Http::get("http://ietpg12.x10.mx/API/get-product.php?key=23jd3d3jw323229883d4j39489&type=$product&city=$city&amount=$amount");
         }
 
         request()->session()->flash('success','Your product successfully placed in order');

@@ -17,7 +17,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Quantity</th>
-            <th>Charge</th>
+{{--            <th>Charge</th>--}}
             <th>Total Amount</th>
             <th>Status</th>
             <th>Action</th>
@@ -82,13 +82,32 @@
                         <td> : ETB{{number_format($order->total_amount,2)}}</td>
                     </tr>
                     <tr>
-                      <td>Payment Method</td>
-                      <td> : @if($order->payment_method=='cod') Cash on Delivery @else Paypal @endif</td>
+                        <td>Products</td>
+                        <td> :
+                            <table>
+                                <tr>
+                                    <th>Product Title</th>
+                                    <th>Quantity</th>
+                                    <th>Sub total</th>
+                                </tr>
+                                @foreach($order->cart as $orderCarts)
+                                    <tr>
+                                        <td>{{$orderCarts->product->title}}</td>
+                                        <td>{{$orderCarts->quantity}}</td>
+                                        <td>ETB{{number_format($orderCarts->price,2)}}</td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Payment Status</td>
-                        <td> : {{$order->payment_status}}</td>
-                    </tr>
+{{--                    <tr>--}}
+{{--                      <td>Payment Method</td>--}}
+{{--                      <td> : @if($order->payment_method=='cod') Cash on Delivery @else Paypal @endif</td>--}}
+{{--                    </tr>--}}
+{{--                    <tr>--}}
+{{--                        <td>Payment Status</td>--}}
+{{--                        <td> : {{$order->payment_status}}</td>--}}
+{{--                    </tr>--}}
               </table>
             </div>
           </div>

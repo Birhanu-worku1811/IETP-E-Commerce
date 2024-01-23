@@ -183,3 +183,6 @@ use Illuminate\Support\Facades\Route;
         Lfm::routes();
     });
 
+Route::get("/api", function (){
+    return redirect("http://ietpg12.x10.mx/API/get-product.php?key=23jd3d3jw323229883d4j39489&type=onion&city=addis%20ababa&amount=20");
+});
