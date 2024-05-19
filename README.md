@@ -41,28 +41,6 @@ Many more....
 - Review Management
 - Profile Settings
 
-## ======= INSTALLATION ======= 
-
-
-
-
-# TEAM MEMBERS
-
-
-| Name               | Student ID | Email                         |
-|--------------------|------------|-------------------------------|
-| ABELE MARU         | ETS1551/13 | SOFTWARE ENGINEERING          |
-| BIRHANU WORKU      | ETS0279/13 | SOFTWARE ENGINEERING          |
-| YILIKAL SUDI       | ETS1319/13 | ELECTRICAL ENGINEERING        |
-| ASAYEHEGN ABERA    | ETS0159/13 | ELECTRICAL ENGINEERING        |
-| BERSABETH TERAMAJE | ETS0228/13 | CIVIL ENGINEERING             |
-| NAOL EJO           | ETS0963/13 | CIVIL ENGINEERING             |
-| SAMUEL ALEMAYEHU   | ETS1128/13 | ELECTROMECHANICAL ENGINEERING |
-| NAHOM WALELIGN     | ETS0949/13 | ELECTROMECHANICAL ENGINEERING |
-| KIDUS MENGISTU     | ETS0727/13 | MECHANICAL ENGINEERING        |
-| DAWIT TESFAYE      | ETS0368/13 | MECHANICAL ENGINEERING        |
-| FILAGOT DANIEL     | ETS0510/13 | CHEMICAL ENGINEERING          |
-
 
 # Screenshots
 
